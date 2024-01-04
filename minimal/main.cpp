@@ -1,36 +1,37 @@
 #include "QApplication"
-#include "QPushButton"
-#include "QHBoxLayout"
-#include "QVBoxLayout"
+#include <QtGui>
+#include <QtCore>
+#include <QGridLayout>
+#include <QLabel>
+#include <QLineEdit>
+#include <QPushButton>
 
 int main(int agrc, char* agrv[]){
     QApplication app(agrc, agrv);
 
-    QWidget *window = new QWidget();
+    QWidget *window = new QWidget;
     window->setWindowTitle("My App");
 
-    // creating buttons
-    QPushButton *button1 = new QPushButton("one");
-    QPushButton *button2 = new QPushButton("two");
-    QPushButton *button3 = new QPushButton("three");
+    QGridLayout *layout = new QGridLayout;
 
-    // layouts
-    // QHBoxLayout *hlayout = new QHBoxLayout();
-    QVBoxLayout *vlayout = new QVBoxLayout();
+    QLabel *label1 = new QLabel("Name:");
+    QLineEdit *txtName = new QLineEdit;
 
-    // Horizontal Layout
-    // hlayout->addWidget(button1);
-    // hlayout->addWidget(button2);
-    // hlayout->addWidget(button3);
+    QLabel *label2 = new QLabel("Name:");
+    QLineEdit *txtName2 = new QLineEdit;
 
-    // Vertical Layout
-    vlayout->addWidget(button1);
-    vlayout->addWidget(button2);
-    vlayout->addWidget(button3);
+    layout -> addWidget(label1, 0,0);
+    layout->addWidget(txtName, 0,1);
+
+    layout ->addWidget(label2, 1,0);
+    layout->addWidget(txtName2, 1,1);
+
+    QPushButton *button = new QPushButton("click me");
+    layout->addWidget(button, 2, 0, 1, 2);
 
 
-    // window->setLayout(hlayout);
-    window->setLayout(vlayout);
+    window->setLayout(layout);
+
 
     window->show();
     return app.exec();
