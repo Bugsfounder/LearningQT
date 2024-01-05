@@ -6,8 +6,8 @@
    <rect>
     <x>0</x>
     <y>0</y>
-    <width>257</width>
-    <height>130</height>
+    <width>440</width>
+    <height>217</height>
    </rect>
   </property>
   <property name="windowTitle">
@@ -16,16 +16,30 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <widget class="QCheckBox" name="checkBox">
-      <property name="text">
-       <string>I Like Cats</string>
-      </property>
-     </widget>
+     <layout class="QVBoxLayout" name="verticalLayout">
+      <item>
+       <widget class="QRadioButton" name="radioButton1">
+        <property name="text">
+         <string>Cats</string>
+        </property>
+        <property name="checked">
+         <bool>true</bool>
+        </property>
+       </widget>
+      </item>
+      <item>
+       <widget class="QRadioButton" name="radioButton2">
+        <property name="text">
+         <string>Dogs</string>
+        </property>
+       </widget>
+      </item>
+     </layout>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">
       <property name="text">
-       <string>PushButton</string>
+       <string>Click Me</string>
       </property>
      </widget>
     </item>
@@ -36,7 +50,7 @@
     <rect>
      <x>0</x>
      <y>0</y>
-     <width>257</width>
+     <width>440</width>
      <height>22</height>
     </rect>
    </property>
