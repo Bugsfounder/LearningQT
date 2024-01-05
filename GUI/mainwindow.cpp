@@ -9,6 +9,7 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+    ui->checkBox->setChecked(true);
 }
 
 MainWindow::~MainWindow()
@@ -20,8 +21,15 @@ MainWindow::~MainWindow()
 
 void MainWindow::on_pushButton_clicked()
 {
-    // ui->lineEdit->setText("Hello World");
 
-    QMessageBox::information(this, "Title", ui->lineEdit->text());
+    if(ui->checkBox->isChecked()){
+
+        QMessageBox :: information(this, "Title","You like cats");
+
+    }else{
+        QMessageBox::information(this, "Title", "You don't like cats");
+    }
+
+
 }
 
