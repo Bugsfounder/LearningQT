@@ -4,26 +4,7 @@
 #include <QString>
 #include <QTextStream>
 
-void write(QString filename){
-
-    QFile mFile(filename);
-    if (!mFile.open(QFile::WriteOnly | QFile::Text)){
-        qDebug()<<"Could not open file for writing";
-        return;
-    }
-
-    QTextStream out(&mFile);
-    out << "Hello Manisha";
-
-    mFile.close();
-    mFile.flush();
-
-    qDebug() <<"Writting completed";
-
-
-}
-
-void read(QString filename) {
+void Read(QString filename) {
 
     QFile mFile(filename);
 
@@ -34,17 +15,17 @@ void read(QString filename) {
 
     QTextStream in(&mFile);
     QString mText = in.readAll();
-    qDebug() << "reading completed\n"<< "Content: "<<mText;
+    qDebug() << mText;
+
+    mFile.close();
 }
 
 int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QString filename = "/home/bugs/workspace/file.txt";
 
-    write(filename);
-    read(filename);
+    Read(":/MyFiles/Files.pro");
 
     return a.exec();
 }
