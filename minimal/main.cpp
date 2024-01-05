@@ -20,14 +20,14 @@ int main(int agrc, char* agrv[]){
     QLabel *label2 = new QLabel("Name:");
     QLineEdit *txtName2 = new QLineEdit;
 
-    layout -> addWidget(label1, 0,0);
+    layout -> addWidget(label1, 0,0); // (0,0) --> row, col
     layout->addWidget(txtName, 0,1);
 
     layout ->addWidget(label2, 1,0);
     layout->addWidget(txtName2, 1,1);
 
     QPushButton *button = new QPushButton("click me");
-    layout->addWidget(button, 2, 0, 1, 2);
+    layout->addWidget(button, 2, 0, 1, 2); // row --> 2, col --> 0, span_row-->1, span_col-->2
 
 
     window->setLayout(layout);
