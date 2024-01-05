@@ -10,8 +10,8 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    for (int i = 0; i <9;i++){
-        ui->comboBox->addItem(QString::number(i)+" item");
+    for (int i = 0; i<9; i++){
+        ui->listWidget->addItem(QString::number(i)+" item");
     }
 }
 
@@ -25,10 +25,14 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
 
+    QListWidgetItem *item = ui->listWidget->currentItem();
+    item->setText("Fuzzy bunny of dooms");
 
-    QMessageBox::information(this, "Title", ui->comboBox->currentText());
+    item->setForeground(Qt::red);
+    item->setBackground(Qt::black);
 
-    QMessageBox::information(this, "Title", QString::number(ui->comboBox->currentIndex()));
+
+
 
 }
 
