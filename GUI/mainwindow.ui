@@ -16,25 +16,7 @@
   <widget class="QWidget" name="centralwidget">
    <layout class="QHBoxLayout" name="horizontalLayout">
     <item>
-     <layout class="QVBoxLayout" name="verticalLayout">
-      <item>
-       <widget class="QRadioButton" name="radioButton1">
-        <property name="text">
-         <string>Cats</string>
-        </property>
-        <property name="checked">
-         <bool>true</bool>
-        </property>
-       </widget>
-      </item>
-      <item>
-       <widget class="QRadioButton" name="radioButton2">
-        <property name="text">
-         <string>Dogs</string>
-        </property>
-       </widget>
-      </item>
-     </layout>
+     <widget class="QComboBox" name="comboBox"/>
     </item>
     <item>
      <widget class="QPushButton" name="pushButton">

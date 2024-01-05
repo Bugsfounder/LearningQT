@@ -9,6 +9,10 @@ MainWindow::MainWindow(QWidget *parent)
     , ui(new Ui::MainWindow)
 {
     ui->setupUi(this);
+
+    for (int i = 0; i <9;i++){
+        ui->comboBox->addItem(QString::number(i)+" item");
+    }
 }
 
 MainWindow::~MainWindow()
@@ -21,13 +25,10 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
 
-    if (ui->radioButton1->isChecked()){
-        QMessageBox::information(this, "Title", "Cats");
-    }
-    if(ui->radioButton2->isChecked()){
-        QMessageBox::information(this, "Title", "Dogs");
-    }
 
+    QMessageBox::information(this, "Title", ui->comboBox->currentText());
+
+    QMessageBox::information(this, "Title", QString::number(ui->comboBox->currentIndex()));
 
 }
 
