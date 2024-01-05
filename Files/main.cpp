@@ -15,6 +15,7 @@ void Read(QString filename) {
 
     QTextStream in(&mFile);
     QString mText = in.readAll();
+
     qDebug() << mText;
 
     mFile.close();
