@@ -16,8 +16,12 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
+
+
 void MainWindow::on_pushButton_clicked()
 {
-    QMessageBox::information(this, "Title Here", "Hello. I am a Message");
+    // ui->lineEdit->setText("Hello World");
+
+    QMessageBox::information(this, "Title", ui->lineEdit->text());
 }
 
