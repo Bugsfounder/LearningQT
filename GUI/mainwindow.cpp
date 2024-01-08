@@ -11,17 +11,25 @@ MainWindow::MainWindow(QWidget *parent)
     ui->setupUi(this);
 
     ui->treeWidget->setColumnCount(2);
-    AddRoot("Hello", "World");
-}
+    // ui->treeWidget->setHeaderLabel("col a"); // can set one header
+    ui->treeWidget->setHeaderLabels(QStringList() <<"one"<<"two"); // setting headers
 
+    AddRoot("Hello", "World");
+    AddRoot("Hello", "World");
+    AddRoot("Hello", "World");
+    AddRoot("Hello", "World");
+
+}
 
 void MainWindow::AddRoot(QString name, QString description){
 
     QTreeWidgetItem *item = new  QTreeWidgetItem(ui->treeWidget);
     item->setText(0, name);
     item->setText(1, description);
-    ui->treeWidget->addTopLevelItem(item);
+    // ui->treeWidget->addTopLevelItem(item);
 
+    AddChild(item, name, description);
+    AddChild(item, name, description);
     AddChild(item, name, description);
 }
 
@@ -31,6 +39,7 @@ void MainWindow::AddChild(QTreeWidgetItem *parent, QString name, QString descrip
     item->setText(0, name);
     item->setText(1, description);
     parent->addChild(item);
+
 
 }
 
@@ -42,7 +51,8 @@ MainWindow::~MainWindow()
 void MainWindow::on_pushButton_clicked()
 {
 
-
+    ui->treeWidget->currentItem()->setBackground(0, Qt::red);
+    ui->treeWidget->currentItem()->setBackground(1, Qt::blue);
 
 }
 
