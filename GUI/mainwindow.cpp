@@ -10,9 +10,28 @@ MainWindow::MainWindow(QWidget *parent)
 {
     ui->setupUi(this);
 
-    for (int i = 0; i<9; i++){
-        ui->listWidget->addItem(QString::number(i)+" item");
-    }
+    ui->treeWidget->setColumnCount(2);
+    AddRoot("Hello", "World");
+}
+
+
+void MainWindow::AddRoot(QString name, QString description){
+
+    QTreeWidgetItem *item = new  QTreeWidgetItem(ui->treeWidget);
+    item->setText(0, name);
+    item->setText(1, description);
+    ui->treeWidget->addTopLevelItem(item);
+
+    AddChild(item, name, description);
+}
+
+void MainWindow::AddChild(QTreeWidgetItem *parent, QString name, QString description){
+    QTreeWidgetItem *item = new QTreeWidgetItem();
+
+    item->setText(0, name);
+    item->setText(1, description);
+    parent->addChild(item);
+
 }
 
 MainWindow::~MainWindow()
@@ -20,17 +39,8 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-
-
 void MainWindow::on_pushButton_clicked()
 {
-
-    QListWidgetItem *item = ui->listWidget->currentItem();
-    item->setText("Fuzzy bunny of dooms");
-
-    item->setForeground(Qt::red);
-    item->setBackground(Qt::black);
-
 
 
 
