@@ -8,6 +8,7 @@ public:
     mythread();
     void run();
     QString name;
+    bool Stop;
 };
 
 #endif // MYTHREAD_H
