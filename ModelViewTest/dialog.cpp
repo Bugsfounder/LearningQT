@@ -13,7 +13,7 @@ Dialog::Dialog(QWidget *parent)
 
     model->setStringList(List);
 
-    ui->listView->setModel(model);
+    ui->listView->setModel(model); f
     ui->comboBox->setModel(model);
 
     ui->listView->setEditTriggers(QAbstractItemView::AnyKeyPressed | QAbstractItemView::DoubleClicked);
