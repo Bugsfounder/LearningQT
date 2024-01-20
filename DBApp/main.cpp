@@ -6,19 +6,37 @@ int main(int argc, char *argv[])
 {
     QCoreApplication a(argc, argv);
 
-    QSqlDatabase Database;
+    QSqlDatabase database;
 
-    Database = QSqlDatabase::addDatabase("QSQLITE");
-    Database.setDatabaseName("./test.db");
+    database = QSqlDatabase::addDatabase("QSQLITE");
+    database.setDatabaseName("./database.db");
 
-    if (!Database.open())
+
+    if (!database.open())
     {
-        qDebug() << "Error = " << Database.lastError().text();
+        qDebug() << "Error = " << database.lastError().text();
     }
-    else{
+    else
+    {
 
-        qDebug() << "connected to data base successcull";
-        Database.close();
+        QSqlQuery query;
+        QStringList tables;
+        query.prepare("SELECT * FROM sqlite_master");
+        qDebug() << "Connected to Database Successfully!";
+        while (query.next())
+        {
+            qDebug() << "get";
+        }
+
+        // if (qry.exec(""))
+        // {
+
+        // }
+        // else
+        // {
+
+        //     qDebug() <<'Closing';
+        // }
     }
 
     return a.exec();
